@@ -58,7 +58,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 
 
-<p>This is part 1 of the Practical machine learning course project</p>
+<p>This is part 1 of the Practical machine learning course project.</p>
 <div id="background" class="section level3">
 <h3>Background</h3>
 <p>In this project, the goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants to predict how well they did the excersice, this is expressed in the <strong>classe</strong> variable. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website <a href="http://groupware.les.inf.puc-rio.br/har">here</a> (see the section on the Weight Lifting Exercise Dataset).</p>
@@ -149,7 +149,7 @@ names(training)</code></pre>
 </div>
 <div id="model-training" class="section level3">
 <h3>Model training</h3>
-<p>We are going to traing our random forests model to predict the classe variable from all other variables.</p>
+<p>We are going to train our random forests model to predict the classe variable from all other variables. I used pretty much the defaults of the train method, so that means that the resampling method used is bootstraping with the default number of repeats (25), i guess it’s ok to use bootstrapping because of the relatively small sample size.</p>
 <p><strong>Note: I saved the output model in an rds file because the training is very time consuming</strong></p>
 <pre class="r"><code>#train using random forests model
 modelFit &lt;- train(classe ~ ., method = &quot;rf&quot;, data = training)
@@ -162,7 +162,7 @@ saveRDS(modelFit, &quot;rf.RDS&quot;)</code></pre>
 <pre class="r"><code>#calculate the accuracy of our prediction
 mean(testing$class == predict(modelFit, testing))</code></pre>
 <pre><code>## [1] 0.993373</code></pre>
-<p>We can see that the Accuracy is 99.3%, and that would mean that our out of sample error rate would be 0.07 (1 - out of sample accuracy)</p>
+<p>We can see that the Accuracy is 99.3%, and that would mean that our out of sample error rate would be 0.07 (1 - out of sample accuracy).</p>
 </div>
 
 
