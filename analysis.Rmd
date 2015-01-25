@@ -5,7 +5,7 @@ date: "Sunday, October 26, 2014"
 output: html_document
 ---
 
-This is part 1 of the Practical machine learning course project
+This is part 1 of the Practical machine learning course project.
 
 ###Background
 In this project, the goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants to predict how well they did the excersice, this is expressed in the **classe** variable. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website [here](http://groupware.les.inf.puc-rio.br/har) (see the section on the Weight Lifting Exercise Dataset).
@@ -78,7 +78,7 @@ names(training)
 
 
 ###Model training
-We are going to traing our random forests model to predict the classe variable from all other variables.
+We are going to train our random forests model to predict the classe variable from all other variables. I used pretty much the defaults of the train method, so that means that the resampling method used is bootstraping with the default number of repeats (25), i guess it's ok to use bootstrapping because of the relatively small sample size.
 
 **Note: I saved the output model in an rds file because the training is very time consuming**
 ```{r, eval=FALSE}
@@ -100,4 +100,4 @@ we can do this using a confusion matrix
 mean(testing$class == predict(modelFit, testing))
 ```
 
-We can see that the Accuracy is 99.3%, and that would mean that our out of sample error rate would be 0.07 (1 - out of sample accuracy)
+We can see that the Accuracy is 99.3%, and that would mean that our out of sample error rate would be 0.07 (1 - out of sample accuracy).
